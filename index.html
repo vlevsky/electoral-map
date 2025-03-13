@@ -90,8 +90,6 @@
         font-size: 1rem;
         font-weight: bold;
         transition: all 0.3s ease;
-        background-color: #2c3e50;
-        color: white;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
 
@@ -130,22 +128,38 @@
         font-size: 0.9rem;
         color: #7f8c8d;
       }
+
+      .republican-button {
+        background-color: #f45341;
+      }
+
+      .democrat-button {
+        background-color: #0099ff;
+      }
+
+      .reset-button {
+        background-color: #ff0505;
+      }
+
+      .autofill-button {
+        background-color: #2ecc71;
+      }
     </style>
   </head>
   <body>
     <h1>Interactive U.S. Electoral College Map</h1>
     <div class="counter">Total Electoral Votes: <span id="total-votes">0</span></div>
     <div class="controls">
-      <button onclick="autofill2000()">Autofill 2000 Results</button>
-      <button onclick="autofill2004()">Autofill 2004 Results</button>
-      <button onclick="autofill2008()">Autofill 2008 Results</button>
-      <button onclick="autofill2012()">Autofill 2012 Results</button>
-      <button onclick="autofill2016()">Autofill 2016 Results</button>
-      <button onclick="autofill2020()">Autofill 2020 Results</button>
-      <button onclick="autofill2024()">Autofill 2024 Results</button>
-      <button onclick="allRepublican()">All Republican</button>
-      <button onclick="allDemocrat()">All Democrat</button>
-      <button onclick="resetMap()">Reset</button>
+      <button class="autofill-button" onclick="autofill2000()">Autofill 2000 Results</button>
+      <button class="autofill-button" onclick="autofill2004()">Autofill 2004 Results</button>
+      <button class="autofill-button" onclick="autofill2008()">Autofill 2008 Results</button>
+      <button class="autofill-button" onclick="autofill2012()">Autofill 2012 Results</button>
+      <button class="autofill-button" onclick="autofill2016()">Autofill 2016 Results</button>
+      <button class="autofill-button" onclick="autofill2020()">Autofill 2020 Results</button>
+      <button class="autofill-button" onclick="autofill2024()">Autofill 2024 Results</button>
+      <button class="republican-button" onclick="allRepublican()">All Republican</button>
+      <button class="democrat-button" onclick="allDemocrat()">All Democrat</button>
+      <button class="reset-button" onclick="resetMap()">Reset</button>
     </div>
     <div class="score-container">
       <div class="score">
