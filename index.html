@@ -77,7 +77,9 @@
       .controls {
         margin-top: 20px;
         display: flex;
+        flex-wrap: wrap;
         gap: 10px;
+        justify-content: center;
       }
 
       .controls button {
@@ -134,8 +136,16 @@
     <h1>Interactive U.S. Electoral College Map</h1>
     <div class="counter">Total Electoral Votes: <span id="total-votes">0</span></div>
     <div class="controls">
+      <button onclick="autofill2000()">Autofill 2000 Results</button>
+      <button onclick="autofill2004()">Autofill 2004 Results</button>
+      <button onclick="autofill2008()">Autofill 2008 Results</button>
+      <button onclick="autofill2012()">Autofill 2012 Results</button>
+      <button onclick="autofill2016()">Autofill 2016 Results</button>
       <button onclick="autofill2020()">Autofill 2020 Results</button>
       <button onclick="autofill2024()">Autofill 2024 Results</button>
+      <button onclick="allRepublican()">All Republican</button>
+      <button onclick="allDemocrat()">All Democrat</button>
+      <button onclick="resetMap()">Reset</button>
     </div>
     <div class="score-container">
       <div class="score">
@@ -351,6 +361,321 @@
         circle.addEventListener("click", () => toggleStateColor(circle.id));
       });
 
+      // Autofill 2000 Election Results
+      function autofill2000() {
+        const results2000 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "republican",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "republican",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "republican",
+          IA: "democrat",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "democrat",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "republican",
+          NH: "republican",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "republican",
+          ND: "republican",
+          OH: "republican",
+          OK: "republican",
+          OR: "democrat",
+          PA: "democrat",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "republican",
+          WA: "democrat",
+          WV: "republican",
+          WI: "democrat",
+          WY: "republican",
+        };
+        Object.keys(results2000).forEach((state) => {
+          stateColors[state] = results2000[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2000[state]);
+        });
+        updateTotalVotes();
+      }
+
+      // Autofill 2004 Election Results
+      function autofill2004() {
+        const results2004 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "republican",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "republican",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "republican",
+          IA: "republican",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "democrat",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "republican",
+          NH: "democrat",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "republican",
+          ND: "republican",
+          OH: "republican",
+          OK: "republican",
+          OR: "democrat",
+          PA: "democrat",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "republican",
+          WA: "democrat",
+          WV: "republican",
+          WI: "democrat",
+          WY: "republican",
+        };
+        Object.keys(results2004).forEach((state) => {
+          stateColors[state] = results2004[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2004[state]);
+        });
+        updateTotalVotes();
+      }
+
+      // Autofill 2008 Election Results
+      function autofill2008() {
+        const results2008 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "democrat",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "democrat",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "democrat",
+          IA: "democrat",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "democrat",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "democrat",
+          NH: "democrat",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "democrat",
+          ND: "republican",
+          OH: "democrat",
+          OK: "republican",
+          OR: "democrat",
+          PA: "democrat",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "democrat",
+          WA: "democrat",
+          WV: "republican",
+          WI: "democrat",
+          WY: "republican",
+        };
+        Object.keys(results2008).forEach((state) => {
+          stateColors[state] = results2008[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2008[state]);
+        });
+        updateTotalVotes();
+      }
+
+      // Autofill 2012 Election Results
+      function autofill2012() {
+        const results2012 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "democrat",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "democrat",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "republican",
+          IA: "democrat",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "democrat",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "democrat",
+          NH: "democrat",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "republican",
+          ND: "republican",
+          OH: "democrat",
+          OK: "republican",
+          OR: "democrat",
+          PA: "democrat",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "democrat",
+          WA: "democrat",
+          WV: "republican",
+          WI: "democrat",
+          WY: "republican",
+        };
+        Object.keys(results2012).forEach((state) => {
+          stateColors[state] = results2012[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2012[state]);
+        });
+        updateTotalVotes();
+      }
+
+      // Autofill 2016 Election Results
+      function autofill2016() {
+        const results2016 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "democrat",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "republican",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "republican",
+          IA: "republican",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "republican",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "democrat",
+          NH: "democrat",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "republican",
+          ND: "republican",
+          OH: "republican",
+          OK: "republican",
+          OR: "democrat",
+          PA: "republican",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "democrat",
+          WA: "democrat",
+          WV: "republican",
+          WI: "republican",
+          WY: "republican",
+        };
+        Object.keys(results2016).forEach((state) => {
+          stateColors[state] = results2016[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2016[state]);
+        });
+        updateTotalVotes();
+      }
+
       // Autofill 2020 Election Results
       function autofill2020() {
         const results2020 = {
@@ -415,71 +740,100 @@
       }
 
       // Autofill 2024 Election Results
-function autofill2024() {
-  const results2024 = {
-    AL: "republican",
-    AK: "republican",
-    AZ: "republican",
-    AR: "republican",
-    CA: "democrat",
-    CO: "democrat",
-    CT: "democrat",
-    DE: "democrat",
-    FL: "republican",
-    GA: "republican",
-    HI: "democrat",
-    ID: "republican",
-    IL: "democrat",
-    IN: "republican",
-    IA: "republican",
-    KS: "republican",
-    KY: "republican",
-    LA: "republican",
-    ME: "democrat",
-    MD: "democrat",
-    MA: "democrat",
-    MI: "republican",
-    MN: "democrat",
-    MS: "republican",
-    MO: "republican",
-    MT: "republican",
-    NE: "republican",
-    NV: "republican",
-    NH: "democrat",
-    NJ: "democrat",
-    NM: "democrat",
-    NY: "democrat",
-    NC: "republican",
-    ND: "republican",
-    OH: "republican",
-    OK: "republican",
-    OR: "democrat",
-    PA: "republican",
-    RI: "democrat",
-    SC: "republican",
-    SD: "republican",
-    TN: "republican",
-    TX: "republican",
-    UT: "republican",
-    VT: "democrat",
-    VA: "democrat",
-    WA: "democrat",
-    WV: "republican",
-    WI: "republican",
-    WY: "republican",
-  };
+      function autofill2024() {
+        const results2024 = {
+          AL: "republican",
+          AK: "republican",
+          AZ: "republican",
+          AR: "republican",
+          CA: "democrat",
+          CO: "democrat",
+          CT: "democrat",
+          DE: "democrat",
+          FL: "republican",
+          GA: "republican",
+          HI: "democrat",
+          ID: "republican",
+          IL: "democrat",
+          IN: "republican",
+          IA: "republican",
+          KS: "republican",
+          KY: "republican",
+          LA: "republican",
+          ME: "democrat",
+          MD: "democrat",
+          MA: "democrat",
+          MI: "republican",
+          MN: "democrat",
+          MS: "republican",
+          MO: "republican",
+          MT: "republican",
+          NE: "republican",
+          NV: "republican",
+          NH: "democrat",
+          NJ: "democrat",
+          NM: "democrat",
+          NY: "democrat",
+          NC: "republican",
+          ND: "republican",
+          OH: "republican",
+          OK: "republican",
+          OR: "democrat",
+          PA: "republican",
+          RI: "democrat",
+          SC: "republican",
+          SD: "republican",
+          TN: "republican",
+          TX: "republican",
+          UT: "republican",
+          VT: "democrat",
+          VA: "democrat",
+          WA: "democrat",
+          WV: "republican",
+          WI: "republican",
+          WY: "republican",
+        };
+        Object.keys(results2024).forEach((state) => {
+          stateColors[state] = results2024[state];
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican", "democrat");
+          stateElement.classList.add(results2024[state]);
+        });
+        updateTotalVotes();
+      }
 
-  // Apply the 2024 results to the map
-  Object.keys(results2024).forEach((state) => {
-    stateColors[state] = results2024[state];
-    const stateElement = document.getElementById(state);
-    stateElement.classList.remove("neutral", "republican", "democrat");
-    stateElement.classList.add(results2024[state]);
-  });
+      // Autofill All Republican
+      function allRepublican() {
+        Object.keys(stateColors).forEach((state) => {
+          stateColors[state] = "republican";
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "democrat");
+          stateElement.classList.add("republican");
+        });
+        updateTotalVotes();
+      }
 
-  // Update the total votes display
-  updateTotalVotes();
-}
+      // Autofill All Democrat
+      function allDemocrat() {
+        Object.keys(stateColors).forEach((state) => {
+          stateColors[state] = "democrat";
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("neutral", "republican");
+          stateElement.classList.add("democrat");
+        });
+        updateTotalVotes();
+      }
+
+      // Reset Map
+      function resetMap() {
+        Object.keys(stateColors).forEach((state) => {
+          stateColors[state] = "neutral";
+          const stateElement = document.getElementById(state);
+          stateElement.classList.remove("republican", "democrat");
+          stateElement.classList.add("neutral");
+        });
+        updateTotalVotes();
+      }
     </script>
   </body>
 </html>
